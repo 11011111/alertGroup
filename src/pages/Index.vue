@@ -1,11 +1,27 @@
 <template>
-  <q-page class="flex flex-center">
-    Alert Group
+  <q-page class="row bg justify-center">
+    <div class="container">
+      <div class="head row flex-center">
+        <h1>{{ heading }}</h1>
+      </div>
+      <Filters/>
+      <Apartment/>
+
+    </div>
   </q-page>
 </template>
 
 <script>
+import Filters from 'components/Filters';
+import Apartment from 'components/Apartment';
+
 export default {
   name: 'PageIndex',
+  components: { Filters, Apartment },
+  data() {
+    return {
+      heading: 'Lorem ipsum dolor sit',
+    };
+  },
 };
 </script>

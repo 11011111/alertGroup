@@ -12,13 +12,24 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
-$primary   : #1976D2;
-$secondary : #26A69A;
+$primary   : #70D24E;
+$secondary : #D8D8D8;
 $accent    : #9C27B0;
 
-$dark      : #1D1D1D;
+$bg        : #F8F8F8;
+$dark      : #2C323A;
+$light-on-dark : #fff;
 
 $positive  : #21BA45;
 $negative  : #C10015;
 $info      : #31CCEC;
 $warning   : #F2C037;
+
+$GothamPro   : 'Gotham Pro';
+$GothamProL   : 'Gotham Pro Light';
+$GothamProB   : 'Gotham Pro Bold';
+$GothamProM   : 'Gotham Pro Medium';
+
+$xs-breakpoint: 599;
+$sm-breakpoint: 1023;
+$md-breakpoint: 1170;
