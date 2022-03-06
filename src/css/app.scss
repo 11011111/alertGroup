@@ -18,13 +18,12 @@
 //}
 
 
-
 //Основные атрибуты текстовых элементов
 @mixin text-style($size, $family, $color, $lHeight: 0) {
   font-size: $size+px;
   font-family: $family;
   color: $color;
-  line-height: $lHeight;
+  line-height: $lHeight+px;
 }
 
 
@@ -40,7 +39,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-
   font-size: 34px;
   line-height: 60px;
 }
@@ -74,35 +72,85 @@ a {
 }
 
 .btn {
-  @include text-style(14, $GothamProB,  $light-on-dark, 28);
+  @include text-style(14, $GothamProB, $light-on-dark, 28);
   background-color: $primary;
   text-transform: uppercase;
   text-align: center;
   display: block;
-  padding: 7px 50px 5px;
-  border-radius: 0 0 5px 5px;
-  box-shadow: none;
+  padding: 4px 50px 0;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.btn-toggle ::v-deep button {
+  @include text-style(16, $GothamProB, $dark, 28);
+}
+
+.input-custom {
+  text-align: center;
+  padding: 6px 10px 4px;
+  @include text-style(16, $GothamPro, $dark, 28);
+  border-radius: 5px;
+  border: 1px solid $secondary;
 }
 
 
 .filters {
-  .item title {
-    @include text-style(12, $GothamPro, $dark, 28);
+  hr {
+    height: 20px;
+    align-self: center;
+    margin-bottom: 10px;
   }
+
+  .item {
+    .title {
+      @include text-style(12, $GothamProB, $dark, 28);
+      text-transform: uppercase;
+
+      sup {
+        line-height: 0;
+      }
+    }
+  }
+
+  .input-custom {
+    max-width: 80px;
+  }
+}
+
+.btn-toggle {
+  @include text-style(16, $GothamProB, $dark, 28);
+  //border-bottom: 1px solid $dark;
 }
 
 .apartments {
   .item {
     .header {
 
-      .floor {@include text-style(12, $GothamProB, $dark, 28); opacity: 0.5}
-      .title {@include text-style(12, $GothamPro, $dark, 28);}
-    }
-    .body{
+      .floor {
+        @include text-style(12, $GothamProB, $dark, 28);
+        opacity: 0.5
+      }
 
-      .number {@include text-style(14, $GothamPro, $dark, 28);}
-      .price {@include text-style(20, $GothamPro, $dark, 28);}
-      .price-square {@include text-style(12, $GothamPro, $dark, 28); opacity: 0.5}
+      .title {
+        @include text-style(12, $GothamProB, $dark, 28);
+      }
+    }
+
+    .body {
+
+      .number {
+        @include text-style(14, $GothamProB, $dark, 28);
+      }
+
+      .price {
+        @include text-style(20, $GothamProB, $dark, 28);
+      }
+
+      .price-square {
+        @include text-style(12, $GothamProB, $dark, 28);
+        opacity: 0.5
+      }
     }
 
     .footer {
