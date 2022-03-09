@@ -3,18 +3,22 @@
     <div class="row justify-between filters ">
       <div class="item">
         <div class="title">Комнаты</div>
-        <q-btn-toggle
-          v-model="model"
-          :options="rooms"
-          unelevated
-          spread
-          stretch
-          no-caps
-          text-color="dark"
-          toggle-text-color="grey-1"
-          padding="7px 14px"
-          class="my-custom-toggle btn-toggle"
-        />
+        <BtnToggle v-model="rooms.selected" :items="rooms.items" />
+
+<!--        Использование компонента от quasar     -->
+<!--        <q-btn-toggle-->
+<!--          v-model="model"-->
+<!--          :options="rooms"-->
+<!--          unelevated-->
+<!--          spread-->
+<!--          stretch-->
+<!--          no-caps-->
+<!--          text-color="dark"-->
+<!--          toggle-text-color="grey-1"-->
+<!--          padding="7px 14px"-->
+<!--          class="my-custom-toggle "-->
+<!--        />-->
+<!--        End QBtnToggle      -->
       </div>
       <q-separator vertical inset/>
       <div class="item">
@@ -48,19 +52,19 @@
 </template>
 
 <script>
+import BtnToggle from 'components/BtnToggle';
 import Range from 'components/Range';
 
 export default {
   name: 'Filters',
-  components: { Range },
+  components: { Range, BtnToggle },
   data() {
     return {
-      rooms: [
-        { label: 'S', value: 'S' },
-        { label: '1к', value: '1' },
-        { label: '2к', value: '2' },
-        { label: '3к', value: '3' },
-      ],
+      rooms: {
+        selected: '1к',
+        name: 'rooms',
+        items: ['S', '1к', '2к', '3к'],
+      },
       model: '1',
       floor: {
         min: 1,
@@ -80,14 +84,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.my-custom-toggle ::v-deep button {
-  border: 1px solid $secondary;
-  margin: 0 2px;
-  background: $light-on-dark;
-  border-radius: 5px!important;
-  display: block;
-}
-.my-custom-toggle ::v-deep button.bg-primary {
-  border: 1px solid transparent;
-}
+//Стили для компонента quasar
+//.my-custom-toggle ::v-deep button {
+//  border: 1px solid $secondary;
+//  margin: 0 2px;
+//  background: $light-on-dark;
+//  border-radius: 5px!important;
+//  display: block;
+//}
+//.my-custom-toggle ::v-deep button.bg-primary {
+//  border: 1px solid transparent;
+//}
+//End
 </style>

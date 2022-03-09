@@ -82,8 +82,35 @@ a {
   margin-bottom: 12px;
 }
 
-.btn-toggle ::v-deep button {
-  @include text-style(16, $GothamProB, $dark, 28);
+
+.btn-toggle {
+  div {
+    flex: 10000 1 0;
+    min-width: 0;
+
+    input{
+      display: none;
+
+      &:focus+label, &:hover+label, &:checked+label{
+        background-color: $primary;
+        color: $light-on-dark;
+        border: 1px solid transparent;
+      }
+    }
+
+    label {
+      content: "";
+      @include text-style(16, $GothamProB, $dark, 28);
+      background-color: $light-on-dark;
+      text-align: center;
+      display: block;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid $secondary;
+      margin-right: 4px;
+    }
+  }
 }
 
 .input-custom {
@@ -103,6 +130,8 @@ a {
   }
 
   .item {
+    width: auto;
+
     .title {
       @include text-style(12, $GothamProB, $dark, 28);
       text-transform: uppercase;
@@ -118,10 +147,6 @@ a {
   }
 }
 
-.btn-toggle {
-  @include text-style(16, $GothamProB, $dark, 28);
-  //border-bottom: 1px solid $dark;
-}
 
 .apartments {
   .item {
