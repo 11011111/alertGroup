@@ -67,10 +67,17 @@ module.exports = function (/* ctx */) {
 
       // https://v1.quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpack(chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }]);
-      },
+
+
+
+
+
+      // chainWebpack(chain) {
+        // chain.plugin('eslint-webpack-plugin')
+        //   .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }]);
+      // },
+
+
     },
 
     // Full list of options: https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer

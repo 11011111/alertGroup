@@ -3,12 +3,12 @@
     <div class="justify-center">
       <input
         class="input-custom"
-        v-model="params.min"
+        v-model="propModel.min"
       />
       -
       <input
         class="input-custom"
-        v-model="params.max"
+        v-model="propModel.max"
       />
     </div>
     <q-range
@@ -16,7 +16,7 @@
       :min="values.min"
       :max="values.max"
       class="row my-custom"
-      v-model="params"
+      v-model="propModel"
       @change="changeParams"
       track-size="2px"
       track-color="secondary"
@@ -31,6 +31,16 @@ export default {
   props: {
     values: Object,
   },
+
+
+  computed: {
+    propModel: {
+      get () { return this.value },
+      set (value) { this.$emit('update:value', value) },
+    },
+  },
+
+
   watch: {
     params: {
       handler() {
@@ -40,7 +50,8 @@ export default {
     },
   },
   mounted() {
-    this.params = this.values;
+    console.log(this.values)
+    this.params = this.value;
   },
   methods: {
     changeParams(val) {
@@ -60,6 +71,9 @@ export default {
 
 <style scoped lang="scss">
 .my-custom ::v-deep {
+  margin-top: 5px;
+  margin-bottom: 5px;
+
   path {
     stroke: white;
     fill: $primary;

@@ -3,22 +3,22 @@
     <div class="row justify-between filters ">
       <div class="item">
         <div class="title">Комнаты</div>
-        <BtnToggle v-model="rooms.selected" :items="rooms.items" />
+        <BtnToggle v-model="rooms.selected" :items="rooms.items"/>
 
-<!--        Использование компонента от quasar     -->
-<!--        <q-btn-toggle-->
-<!--          v-model="model"-->
-<!--          :options="rooms"-->
-<!--          unelevated-->
-<!--          spread-->
-<!--          stretch-->
-<!--          no-caps-->
-<!--          text-color="dark"-->
-<!--          toggle-text-color="grey-1"-->
-<!--          padding="7px 14px"-->
-<!--          class="my-custom-toggle "-->
-<!--        />-->
-<!--        End QBtnToggle      -->
+        <!--        Использование компонента от quasar     -->
+        <!--        <q-btn-toggle-->
+        <!--          v-model="model"-->
+        <!--          :options="rooms"-->
+        <!--          unelevated-->
+        <!--          spread-->
+        <!--          stretch-->
+        <!--          no-caps-->
+        <!--          text-color="dark"-->
+        <!--          toggle-text-color="grey-1"-->
+        <!--          padding="7px 14px"-->
+        <!--          class="my-custom-toggle "-->
+        <!--        />-->
+        <!--        End QBtnToggle      -->
       </div>
       <q-separator vertical inset/>
       <div class="item">
@@ -29,12 +29,12 @@
       <q-separator vertical inset/>
       <div class="item">
         <div class="title">Площадь, <span class="text-lowercase">м<sup>2</sup></span></div>
-        <Range :values="area" />
+        <Range :values="area"/>
       </div>
       <q-separator vertical inset/>
       <div class="item">
         <div class="title">Стоимость, <span class="text-lowercase">млн. р.</span></div>
-        <Range :values="price" />
+        <Range :values="price"/>
       </div>
       <q-separator vertical inset/>
       <div class="item text-center items-end row">
@@ -57,7 +57,24 @@ import Range from 'components/Range';
 
 export default {
   name: 'Filters',
-  components: { Range, BtnToggle },
+  components: {Range, BtnToggle},
+  watch: {
+    // floor(val) {
+    //   console.log(val)
+    // },
+  },
+  computed: {
+    // floor: {
+    //   get() {
+    //     return this.$store.getters["apartment/getFloor"]
+    //   },
+    //   set(val) {
+    //     console.log('23423423', val)
+    //     this.$store.commit('apartment/FLOOR_MUTATION', val)
+    //   }
+    // },
+
+  },
   data() {
     return {
       rooms: {
@@ -65,7 +82,6 @@ export default {
         name: 'rooms',
         items: ['S', '1к', '2к', '3к'],
       },
-      model: '1',
       floor: {
         min: 1,
         max: 13,
@@ -78,7 +94,22 @@ export default {
         min: 9.9,
         max: 99.9,
       },
+      model: '1',
     };
+  },
+  methods: {
+    // onFilter() {
+    //   function floorFilter(flats) {
+    //     for (let item in flats) {
+    //       if (item === 'floor') {
+    //         console.log(flats[item])
+    //       }
+    //     }
+    //   }
+    //
+    //   let arrApartments = this.$store.state.apartment.apartments
+    //   arrApartments.filter(floorFilter)
+    // },
   },
 };
 </script>
