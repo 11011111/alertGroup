@@ -3,25 +3,26 @@
     <div class="justify-center">
       <input
         class="input-custom"
-        v-model="propModel.min"
+        v-model="minValue"
       />
       -
       <input
         class="input-custom"
         v-model="propModel.max"
       />
+
     </div>
     <q-range
       color="primary"
-      :min="values.min"
-      :max="values.max"
+      :min="min"
+      :max="max"
       class="row my-custom"
       v-model="propModel"
-      @change="changeParams"
       track-size="2px"
       track-color="secondary"
       thumb-size="24px"
     />
+
   </div>
 </template>
 
@@ -29,44 +30,40 @@
 export default {
   name: 'Range',
   props: {
-    values: Object,
+    value: Object,   // то что пришло из v-model (Vue2), если Vue3 - modelValue
+    min: Number,
+    max: Number,
   },
-
+  mounted() {
+    console.log(this.value)
+  },
 
   computed: {
     propModel: {
-      get () { return this.value },
-      set (value) { this.$emit('update:value', value) },
-    },
-  },
-
-
-  watch: {
-    params: {
-      handler() {
-        this.$emit('input', this.params);
+      get() {
+        return this.value
       },
-      deep: true,
-    },
-  },
-  mounted() {
-    console.log(this.values)
-    this.params = this.value;
-  },
-  methods: {
-    changeParams(val) {
-      this.$emit('input', val);
-    },
-  },
-  data() {
-    return {
-      params: {
-        min: 0,
-        max: 0,
+      set(val) {
+        this.$emit('input', val); // для VUE2
+        // this.$emit('update', val); // для VUE3
       },
-    };
+    },
+
+    minValue: {
+      get() {
+        return this.value.min
+      },
+      set(val) {
+        console.log(val)
+
+        this.propModel.min = Number(val)
+
+        this.$emit('input', this.propModel); // для VUE2
+        // this.$emit('update', val); // для VUE3
+      },
+    },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">

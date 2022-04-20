@@ -9,8 +9,12 @@ export default function () {
         items: ['S', '1к', '2к', '3к'],
       },
       floor: {
-        min: 1,
-        max: 13,
+        param: {
+          min: 1,
+          max: 13,
+        },
+        dMin: 1,
+        dMax: 13,
       },
       area: {
         min: 1,

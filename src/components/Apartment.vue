@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 q-my-lg">
-      <div class="apartments row justify-between">
+      <div class="apartments row justify-start">
         <div class="col-3 q-px-md q-py-md"
              v-for="(item, idx) in getApartments"
              :key="idx"

@@ -3,7 +3,7 @@
     {
       "building_id": 73,
       "building_name": "1 этап 1а корпуса",
-      "floor": 10,
+      "floor": 1,
       "id": 23329,
       "is_studio": 1,
       "number": "163",
@@ -17,7 +17,7 @@
     {
       "building_id": 74,
       "building_name": "1 этап 1а корпуса",
-      "floor": 4,
+      "floor": 28,
       "id": 20822,
       "is_studio": 1,
       "number": "163",
@@ -59,7 +59,7 @@
     {
       "building_id": 32,
       "building_name": "1 этап 1а корпуса",
-      "floor": 10,
+      "floor": 15,
       "id": 20328,
       "is_studio": 1,
       "number": "163",

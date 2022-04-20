@@ -23,7 +23,7 @@ export default {
       return this.$store.getters['apartment/getApartments']
     }
   },
-  beforeCreate() {
+  mounted() {
     return this.$store.dispatch('apartment/apartAction', {})
   },
   data() {

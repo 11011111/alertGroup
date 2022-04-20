@@ -24,18 +24,18 @@
       <div class="item">
         <div class="title">Этаж</div>
         <Range
-          :values="floor" />
+          v-model="floorParams" :min="floor.dMin" :max="floor.dMax" />
       </div>
       <q-separator vertical inset/>
-      <div class="item">
-        <div class="title">Площадь, <span class="text-lowercase">м<sup>2</sup></span></div>
-        <Range :values="area"/>
-      </div>
+<!--      <div class="item">-->
+<!--        <div class="title">Площадь, <span class="text-lowercase">м<sup>2</sup></span></div>-->
+<!--        <Range :values="area"/>-->
+<!--      </div>-->
       <q-separator vertical inset/>
-      <div class="item">
-        <div class="title">Стоимость, <span class="text-lowercase">млн. р.</span></div>
-        <Range :values="price"/>
-      </div>
+<!--      <div class="item">-->
+<!--        <div class="title">Стоимость, <span class="text-lowercase">млн. р.</span></div>-->
+<!--        <Range :values="price"/>-->
+<!--      </div>-->
       <q-separator vertical inset/>
       <div class="item text-center items-end row">
         <div>
@@ -64,15 +64,23 @@ export default {
     // },
   },
   computed: {
-    // floor: {
-    //   get() {
-    //     return this.$store.getters["apartment/getFloor"]
-    //   },
-    //   set(val) {
-    //     console.log('23423423', val)
-    //     this.$store.commit('apartment/FLOOR_MUTATION', val)
-    //   }
-    // },
+    floorParams: {
+      get() {
+        return this.$store.getters["apartment/getFloorParams"]
+      },
+      set(val) {
+        this.$store.commit('apartment/FLOOR_PARAM_MUTATION', val)
+      }
+    },
+
+    floor: {
+      get() {
+        return this.$store.getters["apartment/getFloor"]
+      },
+      set(val) {
+        this.$store.commit('apartment/FLOOR_MUTATION', val)
+      }
+    },
 
   },
   data() {
@@ -82,10 +90,10 @@ export default {
         name: 'rooms',
         items: ['S', '1к', '2к', '3к'],
       },
-      floor: {
-        min: 1,
-        max: 13,
-      },
+      // floor: {
+      //   min: 1,
+      //   max: 13,
+      // },
       area: {
         min: 1,
         max: 100,
