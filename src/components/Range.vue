@@ -64,8 +64,8 @@ export default {
       },
       set(val) {
         this.propModel = {
-          min: val,
-          max: this.value.max
+          min: this.value.min,
+          max: val
         }
       },
     },
