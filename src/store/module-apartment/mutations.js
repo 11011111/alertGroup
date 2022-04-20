@@ -10,14 +10,12 @@ export function apartFailed(state, payload) {
   state.validationErrors = payload
 }
 
-export function FLOOR_PARAM_MUTATION(state, payload) {
-  // state.apartFilter.floor = payload
-  state.apartFilter.floor.param = payload
+export function FLOOR_INTERVAL_MUTATION(state, payload) {
+  state.apartFilter.floorInterval = payload
 }
 
 export function FLOOR_MUTATION(state, payload) {
   state.apartFilter.floor = payload
-  // state.apartFilter.floor.param = payload
 }
 
 

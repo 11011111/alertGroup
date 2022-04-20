@@ -10,14 +10,17 @@ export function apartAction(context, data) {
           return apartment.floor
         })
 
-        context.commit('FLOOR_MUTATION', {
-          param: {
-            min: Math.min(...floorNum),
-            max: Math.max(...floorNum),
-          },
-          dMin: Math.min(...floorNum),
-          dMax: Math.max(...floorNum),
+        context.commit('FLOOR_INTERVAL_MUTATION', {
+          min: Math.min(...floorNum),
+          max: Math.max(...floorNum),
         })
+
+        context.commit('FLOOR_MUTATION', {
+          min: Math.min(...floorNum),
+          max: Math.max(...floorNum),
+        })
+
+
       })
       .catch(result => {
         context.commit('apartFailed', result.response.data.errors)

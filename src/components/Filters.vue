@@ -23,8 +23,7 @@
       <q-separator vertical inset/>
       <div class="item">
         <div class="title">Этаж</div>
-        <Range
-          v-model="floorParams" :min="floor.dMin" :max="floor.dMax" />
+        <Range v-model="floor" :min="floorInterval.min" :max="floorInterval.max" />
       </div>
       <q-separator vertical inset/>
 <!--      <div class="item">-->
@@ -64,15 +63,9 @@ export default {
     // },
   },
   computed: {
-    floorParams: {
-      get() {
-        return this.$store.getters["apartment/getFloorParams"]
-      },
-      set(val) {
-        this.$store.commit('apartment/FLOOR_PARAM_MUTATION', val)
-      }
+    floorInterval() {
+      return this.$store.getters["apartment/getFloorInterval"]
     },
-
     floor: {
       get() {
         return this.$store.getters["apartment/getFloor"]
@@ -90,10 +83,6 @@ export default {
         name: 'rooms',
         items: ['S', '1к', '2к', '3к'],
       },
-      // floor: {
-      //   min: 1,
-      //   max: 13,
-      // },
       area: {
         min: 1,
         max: 100,
@@ -104,20 +93,6 @@ export default {
       },
       model: '1',
     };
-  },
-  methods: {
-    // onFilter() {
-    //   function floorFilter(flats) {
-    //     for (let item in flats) {
-    //       if (item === 'floor') {
-    //         console.log(flats[item])
-    //       }
-    //     }
-    //   }
-    //
-    //   let arrApartments = this.$store.state.apartment.apartments
-    //   arrApartments.filter(floorFilter)
-    // },
   },
 };
 </script>

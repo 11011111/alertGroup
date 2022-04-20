@@ -3,7 +3,7 @@
     <div class="col-12 q-my-lg">
       <div class="apartments row justify-start">
         <div class="col-3 q-px-md q-py-md"
-             v-for="(item, idx) in getApartments"
+             v-for="(item, idx) in value"
              :key="idx"
         >
           <div class="item q-px-sm q-py-sm">
@@ -33,9 +33,8 @@
 export default {
   name: 'Apartment',
   props: {
-    getApartments: {
+    value: {
       type: Array,
-      required: null
     }
   }
 };

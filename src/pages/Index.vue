@@ -5,8 +5,7 @@
         <h1>{{ heading }}</h1>
       </div>
       <Filters />
-      <Apartment :getApartments="getApartments"/>
-
+      <Apartment :value="apartments"/>
     </div>
   </q-page>
 </template>
@@ -19,7 +18,7 @@ export default {
   name: 'PageIndex',
   components: { Filters, Apartment },
   computed: {
-    getApartments() {
+    apartments() {
       return this.$store.getters['apartment/getApartments']
     }
   },

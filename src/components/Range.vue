@@ -1,29 +1,29 @@
 <template>
-  <div>
-    <div class="justify-center">
-      <input
-        class="input-custom"
-        v-model="minValue"
-      />
-      -
-      <input
-        class="input-custom"
-        v-model="propModel.max"
-      />
-
-    </div>
-    <q-range
-      color="primary"
-      :min="min"
-      :max="max"
-      class="row my-custom"
-      v-model="propModel"
-      track-size="2px"
-      track-color="secondary"
-      thumb-size="24px"
+<div>
+  <div class="justify-center">
+    <input
+      class="input-custom"
+      v-model="minValue"
+    />
+    -
+    <input
+      class="input-custom"
+      v-model="maxValue"
     />
 
   </div>
+  <q-range
+    color="primary"
+    :min="min"
+    :max="max"
+    class="row my-custom"
+    v-model="propModel"
+    track-size="2px"
+    track-color="secondary"
+    thumb-size="24px"
+  />
+
+</div>
 </template>
 
 <script>
@@ -44,22 +44,29 @@ export default {
         return this.value
       },
       set(val) {
-        this.$emit('input', val); // для VUE2
-        // this.$emit('update', val); // для VUE3
+        this.$emit('input', val)
       },
     },
-
     minValue: {
       get() {
         return this.value.min
       },
       set(val) {
-        console.log(val)
-
-        this.propModel.min = Number(val)
-
-        this.$emit('input', this.propModel); // для VUE2
-        // this.$emit('update', val); // для VUE3
+        this.propModel = {
+          min: val,
+          max: this.value.max
+        }
+      },
+    },
+    maxValue: {
+      get() {
+        return this.value.max
+      },
+      set(val) {
+        this.propModel = {
+          min: val,
+          max: this.value.max
+        }
       },
     },
   },

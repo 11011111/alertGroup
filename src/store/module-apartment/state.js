@@ -8,13 +8,13 @@ export default function () {
         name: 'rooms',
         items: ['S', '1к', '2к', '3к'],
       },
+      floorInterval: {
+        min: 1,
+        max: 13,
+      },
       floor: {
-        param: {
-          min: 1,
-          max: 13,
-        },
-        dMin: 1,
-        dMax: 13,
+        min: 1,
+        max: 13,
       },
       area: {
         min: 1,
